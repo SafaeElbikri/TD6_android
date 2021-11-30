@@ -15,10 +15,10 @@ import java.util.List;
 
 public class ListRepoAdapter extends RecyclerView.Adapter<ListRepoAdapter.ViewHolder>{
 
-    private final List<Repo> repos;
+    private final List<Repo> items;
 
-    public ListRepoAdapter(List<Repo> repos) {
-        this.repos = repos;
+    public ListRepoAdapter(List<Repo> items) {
+        this.items = items;
     }
 
     @NonNull
@@ -32,7 +32,7 @@ public class ListRepoAdapter extends RecyclerView.Adapter<ListRepoAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Repo repo = repos.get(position);
+        Repo repo = items.get(position);
         TextView name = holder.name;
         name.setText(repo.getName());
         TextView full_name = holder.full_name;
@@ -43,7 +43,7 @@ public class ListRepoAdapter extends RecyclerView.Adapter<ListRepoAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return repos.size();
+        return items.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

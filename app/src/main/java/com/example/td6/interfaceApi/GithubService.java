@@ -1,6 +1,7 @@
 package com.example.td6.interfaceApi;
 
 import com.example.td6.model.Repo;
+import com.example.td6.model.RepoItem;
 
 import java.util.List;
 
@@ -17,6 +18,6 @@ public interface GithubService {
     Call<List<Repo>> listRepos(@Path("user") String user);
 
     @GET("/search/repositories")
-    Call<List<Repo>> searchRepos(@Query("q") String query);
+    Call<RepoItem> searchRepos(@Query("q") String query);
 
 }

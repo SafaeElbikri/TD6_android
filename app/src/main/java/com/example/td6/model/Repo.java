@@ -1,10 +1,14 @@
 package com.example.td6.model;
 
-public class Repo {
+import java.io.Serializable;
+
+public class Repo implements Serializable {
     private int id;
     private String name;
     private String full_name;
     private String html_url;
+
+    public Repo(){}
 
     public Repo(int id, String name, String full_name, String html_url) {
         this.id = id;
