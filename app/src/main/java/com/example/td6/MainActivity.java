@@ -2,7 +2,9 @@ package com.example.td6;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 import com.example.td6.interfaceApi.GithubService;
 import com.example.td6.model.Repo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -54,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
             githubService.searchRepos(search).enqueue(new Callback<List<Repo>>() {
                 @Override
                 public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
-                    afficherReposTrouve(response.body());
+                    //afficherReposTrouve(response.body());
+                    afficherRepos(response.body());
                 }
 
                 @Override
@@ -71,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void afficherReposTrouve(List<Repo> repos){
-
+        Intent intent = new Intent(this, ListRepoActivity.class);
+        //intent.putExtra("repos", (Parcelable) repos);
+        startActivity(intent);
     }
-
 }
